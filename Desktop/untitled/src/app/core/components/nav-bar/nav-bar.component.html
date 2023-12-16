@@ -1,0 +1,67 @@
+<nav class="nav">
+
+  <div class="nav__left-side_items">
+    <div class="nav__burger">
+      <button (click)="changeBurgerVisibilityToOpposite()" class="btn btn-circle outline-accent outline">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7"/>
+        </svg>
+      </button>
+      <div *ngIf="isBurgerVisible" class="nav__burger-content">
+        <ul>
+          <li>
+            <a  routerLink="home">#Home</a>
+          </li>
+          <li>
+            <a routerLink="cpu" >#CPUs</a>
+          </li>
+          <li>
+            <a routerLink="gpu" >#GPUs</a>
+          </li>
+          <li>
+            <a routerLink="setup" >#SETUPs</a>
+          </li>
+        </ul>
+        <button class="nav__burger-content_close-button" (click)="changeBurgerVisibilityToOpposite()">X</button>
+      </div>
+    </div>
+
+    <div class="nav__logo">
+      FOG
+      <span class="text-sm">
+      store
+    </span>
+    </div>
+
+  </div>
+
+  <div class="nav__right-side_items"></div>
+  <ul class="nav__links">
+    <li class="nav__links_link">
+      <a routerLink="home"><span class="text-info">#</span>HOME</a>
+    </li>
+
+    <li class="nav__links_link">
+      <a routerLink="cpu"> <span class="text-info">#</span>CPUs</a>
+    </li>
+
+    <li class="nav__links_link">
+      <a routerLink="gpu"> <span class="text-info">#</span>GPUs</a>
+    </li>
+
+    <li class="nav__links_link">
+      <a routerLink="setup"> <span class="text-info">#</span>SETUPs</a>
+    </li>
+    <li class="nav__links_link">
+      <a routerLink="setup"> <span class="text-info">#</span>ACCOUNT</a>
+    </li>
+
+  </ul>
+  <div class="theme__switcher_wrapper">
+    <span class="text-info">#</span>
+    <span class="mr-2.5 w-16 text-primary">
+      {{ currentTheme }}
+    </span>
+    <input (change)="changeCurrentTheme()" type="checkbox" value="AMD" class="bg-primary toggle theme-controller"/>
+  </div>
+</nav>
