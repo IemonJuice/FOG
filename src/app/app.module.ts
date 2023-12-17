@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import {CoreModule} from "./core/core.module";
-import {RouterModule, RouterOutlet} from "@angular/router";
+import {RouterOutlet} from "@angular/router";
 
 
 

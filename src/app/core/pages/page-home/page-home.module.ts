@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {PageHomeComponent} from "./page-home.component";
 import {RouterModule} from "@angular/router";
+import { HeroModule } from '../../components/hero/hero.module';
+
 
 
 
@@ -10,8 +12,9 @@ import {RouterModule} from "@angular/router";
   imports: [
     CommonModule,
     RouterModule.forChild([
-      {path:'',component:PageHomeComponent}
-    ])
+      {path: '', component: PageHomeComponent}
+    ]),
+    HeroModule
   ],
   exports:[PageHomeComponent,RouterModule]
 })
