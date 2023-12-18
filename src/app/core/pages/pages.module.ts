@@ -5,8 +5,11 @@ import {routes} from "./pages.routes";
 
 
 
+
 @NgModule({
-  declarations: [],
+  declarations: [
+
+  ],
   imports: [
     CommonModule,
     RouterModule.forChild(routes)

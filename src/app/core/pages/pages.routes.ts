@@ -24,6 +24,12 @@ export const routes: Routes = [
     path: 'checkout', loadChildren: () => import('./page-checkout/page-checkout.module').then(m => m.PageCheckoutModule)
   },
   {
+    path: 'login', loadChildren: () => import('./page-login/page-login.module').then(m => m.PageLoginModule)
+  },
+  {
+    path: 'register', loadChildren: () => import('./page-register/page-register.module').then(m => m.PageRegisterModule)
+  },
+  {
     path: '**', redirectTo: '/home', pathMatch: 'full'
   },
 ]

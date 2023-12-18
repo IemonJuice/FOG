@@ -1,0 +1,26 @@
+<div class="catalog-item">
+  <div class="catalog-item__image">
+    <img [src]="product.imageUrl" alt="product image">
+  </div>
+  <div class="catalog-item__name">
+    {{ product.name }}
+  </div>
+  <div class="catalog-item__description">
+    <div>
+     Brand - {{ product.company }}
+    </div>
+    <div>
+     Rating - {{ product.rating }}/5
+    </div>
+    <div>
+     Type - {{ product.type }}
+    </div>
+    <div>
+     Price {{ product.price  | currency}}
+    </div>
+  </div>
+  <div class="catalog-item__buttons">
+    <button class="btn btn-primary">buy</button>
+    <button class="btn btn-outline btn-primary">buy</button>
+  </div>
+</div>

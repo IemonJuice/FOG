@@ -1,0 +1,16 @@
+.filtering-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  &__companies {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:10px;
+  }
+
+  height: 50px;
+  @apply text-primary
+}

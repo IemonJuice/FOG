@@ -16,7 +16,6 @@ import {routes} from "./pages/pages.routes";
   declarations: [
     NavBarComponent,
 
-
   ],
   imports: [
     CommonModule,

@@ -1,8 +1,7 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {NgModule} from '@angular/core';
+import {CommonModule} from '@angular/common';
 import {PageCheckoutComponent} from "./page-checkout.component";
 import {RouterModule} from "@angular/router";
-
 
 
 @NgModule({
@@ -11,10 +10,11 @@ import {RouterModule} from "@angular/router";
     CommonModule,
     RouterModule.forChild(
       [
-        {path:'',component:PageCheckoutComponent}
+        {path: '', component: PageCheckoutComponent}
       ]
     )
   ],
-  exports:[PageCheckoutComponent,RouterModule]
+  exports: [PageCheckoutComponent, RouterModule]
 })
-export class PageCheckoutModule { }
+export class PageCheckoutModule {
+}
