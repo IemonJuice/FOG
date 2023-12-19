@@ -1,6 +1,11 @@
 import {createAction, props} from "@ngrx/store";
 import {CatalogItem} from "../../features/feature-catalog/models/catalog-item.model";
 
+
+export const moveProductToTheCheckout = createAction('[Checkout] add to the checkout', props<{ product: CatalogItem}>());
+export const removeProductFromTheCheckout = createAction('[Checkout] remove by name from the checkout', props<{ name: string }>())
+
+
 export const loadAllProductsAction = createAction('[Catalog] load all products')
 export const successProductsLoadAction = createAction('[Catalog] load success', props<{ products: CatalogItem[] }>())
 export const failureProductsLoadAction = createAction('[Catalog] load failure', props<{ error: unknown }>())

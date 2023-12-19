@@ -9,23 +9,25 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import {loadAllProductsReducer} from "./store/reducers/reducers";
+import {checkoutReducer, loadAllProductsReducer} from "./store/reducers/reducers";
 import {AllProductsEffects} from "./store/effects/effects";
+import { CheckoutItemComponent } from './features/feature-checkout/checkout/checkout-item.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
+
   ],
   imports: [
     BrowserModule,
     CoreModule,
-    StoreModule.forRoot({products:loadAllProductsReducer}, {}),
+    StoreModule.forRoot({products: loadAllProductsReducer, checkoutProducts: checkoutReducer}, {}),
     EffectsModule.forRoot([AllProductsEffects]),
     RouterOutlet,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: !isDevMode()})
   ],
   providers: [],
   bootstrap: [AppComponent]

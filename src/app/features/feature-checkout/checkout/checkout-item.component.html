@@ -1,0 +1,26 @@
+<div class="checkout-item" >
+  <div class="checkout-item__image">
+    <img [src]="product.imageUrl" alt="product image">
+  </div>
+  <div class="checkout-item__name">
+    {{ product.name }}
+  </div>
+  <div class="checkout-item__description">
+    <div>
+      <span class="text-white">#</span>Brand - {{ product.company }}
+    </div>
+    <div>
+      <span class="text-white">#</span>Rating - {{ product.rating }}/5
+    </div>
+    <div>
+      <span class="text-white">#</span>Type - {{ product.type }}
+    </div>
+    <div>
+      <span class="text-white">#</span>Price {{ product.price  | currency }}
+    </div>
+  </div>
+  <div class="checkout-item__buttons">
+    <button (click)="removeProductFromCheckout()" class="btn btn-primary"><span class="text-white">#</span>remove
+    </button>
+  </div>
+</div>

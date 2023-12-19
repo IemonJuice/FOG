@@ -2,6 +2,8 @@ import {Component, OnInit, inject} from '@angular/core';
 import {AuthService} from "../../../features/feature-auth/services/auth.service";
 import {AngularFireAuth} from "@angular/fire/compat/auth";
 import { Router } from '@angular/router';
+import {Store} from "@ngrx/store";
+import {CatalogItem} from "../../../features/feature-catalog/models/catalog-item.model";
 
 @Component({
   selector: 'app-nav-bar',
@@ -10,13 +12,16 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 
-  currentTheme: string = 'nvidia';
-  isBurgerVisible: boolean = false;
-  isUserLoggedIn: boolean = false;
-  userEmail: string = '';
-  auth: AuthService = inject(AuthService);
-  angularFireAuth: AngularFireAuth = inject(AngularFireAuth);
-  router:Router = inject(Router)
+  public currentTheme: string = 'nvidia';
+  public isBurgerVisible: boolean = false;
+  public isUserLoggedIn: boolean = false;
+  public userEmail: string = '';
+  public auth: AuthService = inject(AuthService);
+  public angularFireAuth: AngularFireAuth = inject(AngularFireAuth);
+  public router:Router = inject(Router)
+  public store:Store<{checkoutProducts:CatalogItem[]}> = inject(Store<{checkoutProducts:CatalogItem[]}>);
+  public checkoutQuantity: number = 0;
+
   ngOnInit(): void {
     this.angularFireAuth.authState.subscribe((user) => {
       if (user?.email) {
@@ -24,6 +29,13 @@ export class NavBarComponent implements OnInit {
           this.isUserLoggedIn = true;
       }
     })
+    this.getCheckoutQuantity();
+  }
+
+  getCheckoutQuantity() {
+    this.store.select('checkoutProducts').subscribe(products => {
+      this.checkoutQuantity = products.length;
+    });
   }
 
   changeCurrentTheme(): void {
@@ -37,6 +49,6 @@ export class NavBarComponent implements OnInit {
   logout() {
     this.auth.logout();
     this.isUserLoggedIn = false;
-    this.router.navigate(['/home'])
+    this.router.navigate(['/home']).then(r => r)
   }
 }

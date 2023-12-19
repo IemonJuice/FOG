@@ -9,3 +9,5 @@ export const initialState:InitialState ={
   filteredData: [],
   originalData: []
 }
+
+export const initialStateCheckout:CatalogItem[] = [];

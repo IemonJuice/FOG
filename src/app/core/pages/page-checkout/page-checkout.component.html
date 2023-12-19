@@ -1,1 +1,28 @@
-<p>page-checkout works!</p>
+<div class="checkout">
+
+  <div class="checkout__topbar">
+
+    <div class="checkout__total-price">
+      <span class="text-4xl font-black">{{ totalPrice | currency }} </span><span class="text-lg">dollars</span>
+    </div>
+
+    <div>
+      <button class="btn btn-primary"> confirm your checkout</button>
+    </div>
+
+  </div>
+
+  <div class="checkout__items">
+
+    <app-checkout-item
+      *ngFor="let product of checkoutProducts | async;"
+      [product]="product">
+    </app-checkout-item>
+
+    <div class="w-full h-full flex justify-center items-center" *ngIf="quantity===0">
+      Checkout is empty :)
+    </div>
+
+  </div>
+
+</div>

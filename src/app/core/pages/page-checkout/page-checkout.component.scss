@@ -1,0 +1,29 @@
+.checkout{
+  width:100%;
+  height:100%;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  &__topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width:90%;
+    height:75px;
+
+    @apply outline outline-1 outline-primary my-2.5 px-2.5 text-lg
+  }
+  &__total-price{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__items{
+    width:90%;
+    height: 75vh;
+    overflow-y:auto;
+    @apply outline outline-white outline-1 mb-2.5
+  }
+}

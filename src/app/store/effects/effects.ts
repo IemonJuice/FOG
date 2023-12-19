@@ -1,8 +1,8 @@
-import { Injectable } from "@angular/core";
-import { Actions, createEffect, ofType } from "@ngrx/effects";
-import { catchError, map, of, switchMap } from "rxjs";
+import {Injectable} from "@angular/core";
+import {Actions, createEffect, ofType} from "@ngrx/effects";
+import {catchError, map, of, switchMap} from "rxjs";
 import {failureProductsLoadAction, loadAllProductsAction, successProductsLoadAction} from "../actions/actions";
-import  {GetAllProductsService} from "../../features/feature-catalog/services/get-all-products.service";
+import {GetAllProductsService} from "../../features/feature-catalog/services/get-all-products.service";
 
 @Injectable()
 export class AllProductsEffects {
@@ -24,6 +24,5 @@ export class AllProductsEffects {
 
   constructor(
     private actions$: Actions,
-    private getAllProducts:GetAllProductsService
-  ) {}
+    private getAllProducts: GetAllProductsService) {}
 }

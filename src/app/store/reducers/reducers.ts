@@ -1,7 +1,7 @@
 import {createReducer, on} from "@ngrx/store";
-import {initialState} from "../state/state";
+import {initialState, initialStateCheckout} from "../state/state";
 import {
-  filterByRating, filterByType,
+  filterByRating, filterByType, moveProductToTheCheckout, removeProductFromTheCheckout,
   sortProductsByNameASC,
   sortProductsByNameDSC,
   sortProductsByPriceASC,
@@ -11,6 +11,7 @@ import {
 import {CatalogItem} from "../../features/feature-catalog/models/catalog-item.model";
 
 export const loadAllProductsReducer = createReducer(initialState,
+
   on(successProductsLoadAction, (state, {products}) => {
     return {
       originalData: products,
@@ -56,6 +57,7 @@ export const loadAllProductsReducer = createReducer(initialState,
       filteredData: state.originalData.filter(catalogItem => catalogItem.rating === ratingNumber)
     }
   }),
+
   on(filterByType, (state, {productType}) => {
     return {
       originalData: state.originalData,
@@ -64,3 +66,14 @@ export const loadAllProductsReducer = createReducer(initialState,
   }),
 )
 
+export const checkoutReducer = createReducer(initialStateCheckout,
+
+  on(moveProductToTheCheckout, (state, {product}) => {
+    return [...state, product]
+  }),
+
+  on(removeProductFromTheCheckout, (state, {name}) => {
+    return [...state.filter((product:CatalogItem) =>product.name!==name)]
+  }),
+
+)
