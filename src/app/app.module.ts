@@ -9,6 +9,8 @@ import {AngularFireModule} from "@angular/fire/compat";
 import {environment} from "../environments/environment";
 import {AngularFirestoreModule} from "@angular/fire/compat/firestore";
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import {loadAllProductsReducer} from "./store/reducers/reducers";
+import {AllProductsEffects} from "./store/effects/effects";
 
 
 @NgModule({
@@ -18,8 +20,8 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   imports: [
     BrowserModule,
     CoreModule,
-    StoreModule.forRoot({}, {}),
-    EffectsModule.forRoot([]),
+    StoreModule.forRoot({products:loadAllProductsReducer}, {}),
+    EffectsModule.forRoot([AllProductsEffects]),
     RouterOutlet,
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule,

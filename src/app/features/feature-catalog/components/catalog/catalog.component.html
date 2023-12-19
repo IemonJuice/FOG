@@ -1,3 +1,3 @@
-<div class="catalog">
-  <app-catalog-item [product]="product" *ngFor="let product of products"></app-catalog-item>
+<div class="catalog" >
+  <app-catalog-item [product]="product" *ngFor="let product of products | async"></app-catalog-item>
 </div>

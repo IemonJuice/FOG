@@ -1,14 +1,19 @@
 <div class="filtering-panel">
   <div class="filtering-panel__companies">
-    amd
-    <input checked="checked" type="checkbox" class="checkbox checkbox-md outline-1 outline-primary-content outline"/>
-    intel
-    <input checked="checked" type="checkbox" class="checkbox checkbox-md outline-1 outline-primary-content outline"/>
-    nvidia
-    <input checked="checked" type="checkbox" class="checkbox checkbox-md outline-1 outline-primary-content outline"/>
-    asus
-    <input checked="checked" type="checkbox" class="checkbox checkbox-md outline-1 outline-primary-content outline"/>
-    msi
-    <input checked="checked" type="checkbox" class="checkbox checkbox-md outline-1 outline-primary-content outline"/>
+    #cpu
+    <input (change)="filterByType('cpu')" name="type"  type="radio" class="radio  outline-1 outline-primary-content outline"/>
+    #gpu
+    <input (change)="filterByType('gpu')" name="type"  type="radio" class="radio  outline-1 outline-primary-content outline"/>
+
+    <div class="rating rating-sm">
+      <input (change)="filterByRating(1)" type="radio" name="rating-9" class="mask mask-star-2" />
+      <input (change)="filterByRating(2)" type="radio" name="rating-9" class="mask mask-star-2" />
+      <input (change)="filterByRating(3)" type="radio" name="rating-9" class="mask mask-star-2"  />
+      <input (change)="filterByRating(4)" type="radio" name="rating-9" class="mask mask-star-2" />
+      <input (change)="filterByRating(5)" type="radio" name="rating-9" class="mask mask-star-2" />
+    </div>
+
+    <span class="text-white">Choose rating</span>
+
   </div>
 </div>
