@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { PageCpuComponent } from './page-cpu.component';
+import { PageCatalogComponent } from './page-catalog.component';
 import {RouterModule} from "@angular/router";
 import { FeatureSortingModule } from "../../../features/feature-sorting/components/feature-sorting/feature-sorting.module";
 import {
@@ -12,8 +12,8 @@ import {FeatureCatalogModule} from "../../../features/feature-catalog/feature-ca
 
 @NgModule({
   declarations: [
-    PageCpuComponent,
-    PageCpuComponent
+    PageCatalogComponent,
+    PageCatalogComponent
   ],
   imports: [
     CommonModule,
@@ -22,10 +22,10 @@ import {FeatureCatalogModule} from "../../../features/feature-catalog/feature-ca
     FeatureCatalogModule,
     RouterModule.forChild(
       [
-        {path:'',component: PageCpuComponent}
+        {path:'',component: PageCatalogComponent}
       ]
     )
   ],
-  exports:[PageCpuComponent,RouterModule]
+  exports:[PageCatalogComponent,RouterModule]
 })
-export class PageCpuModule { }
+export class PageCatalogModule { }

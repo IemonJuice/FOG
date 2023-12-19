@@ -10,17 +10,24 @@
       <div *ngIf="isBurgerVisible" class="nav__burger-content">
         <ul>
           <li>
-            <a  routerLink="home">#Home</a>
+            <a routerLink="home">#Home</a>
           </li>
           <li>
-            <a routerLink="cpu" >#CPUs</a>
+            <a routerLink="catalog">#Catalog</a>
           </li>
           <li>
-            <a routerLink="gpu" >#GPUs</a>
+            <a routerLink="account">#Account</a>
           </li>
           <li>
-            <a routerLink="setup" >#SETUPs</a>
+            <a routerLink="login">#Login</a>
           </li>
+          <li>
+            <a routerLink="register">#Register</a>
+          </li>
+          <li>
+            <a routerLink="register">#Logout</a>
+          </li>
+
         </ul>
         <button class="nav__burger-content_close-button" (click)="changeBurgerVisibilityToOpposite()">X</button>
       </div>
@@ -42,18 +49,23 @@
     </li>
 
     <li class="nav__links_link">
-      <a routerLink="cpu"> <span class="text-info">#</span>CPUs</a>
+      <a routerLink="catalog"> <span class="text-info">#</span>catalog</a>
     </li>
 
-    <li class="nav__links_link">
-      <a routerLink="gpu"> <span class="text-info">#</span>GPUs</a>
+      <li *ngIf="isUserLoggedIn" class="nav__links_link">
+      <a routerLink="account"> <span class="text-info">#</span>{{userEmail}}</a>
     </li>
 
-    <li class="nav__links_link">
-      <a routerLink="setup"> <span class="text-info">#</span>SETUPs</a>
+    <li *ngIf="!isUserLoggedIn"  class="nav__links_link">
+      <a routerLink="login"> <span class="text-info">#</span>Login</a>
     </li>
-    <li class="nav__links_link">
-      <a routerLink="setup"> <span class="text-info">#</span>ACCOUNT</a>
+
+    <li *ngIf="!isUserLoggedIn" class="nav__links_link">
+      <a routerLink="register"> <span class="text-info">#</span>Register</a>
+    </li>
+
+    <li *ngIf="isUserLoggedIn" class="nav__links_link">
+      <button (click)="logout()" > <span class="text-info">#</span>Logout</button>
     </li>
 
   </ul>

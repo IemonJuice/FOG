@@ -1,16 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PageCpuComponent } from './page-cpu.component';
+import { PageCatalogComponent } from './page-catalog.component';
 
 describe('PageCpuComponent', () => {
-  let component: PageCpuComponent;
-  let fixture: ComponentFixture<PageCpuComponent>;
+  let component: PageCatalogComponent;
+  let fixture: ComponentFixture<PageCatalogComponent>;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      declarations: [PageCpuComponent]
+      declarations: [PageCatalogComponent]
     });
-    fixture = TestBed.createComponent(PageCpuComponent);
+    fixture = TestBed.createComponent(PageCatalogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

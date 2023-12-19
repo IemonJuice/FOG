@@ -1,1 +1,63 @@
-<p>page-register works!</p>
+<div class="register">
+
+  <div class="register__form">
+
+    <form [formGroup]="authForm">
+
+      <div class="register__form_email">
+
+        <label>#email</label>
+        <input formControlName="email" type="email" placeholder="Type here"
+               class="input input-bordered input-primary w-full max-w-xs"/>
+        <div>
+          <span
+            *ngIf="authForm.get('email')?.hasError('required') && this.authForm.dirty && this.authForm.touched"
+            class="text-primary text-lg">
+            This field is required
+          </span>
+
+          <span
+            *ngIf="authForm.get('email')?.hasError('email')  && this.authForm.dirty && this.authForm.touched"
+            class="text-primary text-lg">
+            This field is must be email type
+          </span>
+        </div>
+
+      </div>
+
+      <div class="register__form_password">
+
+        <label>#password</label>
+        <input formControlName="password" type="password" placeholder="Type here"
+               class="input input-bordered input-primary w-full max-w-xs"/>
+
+        <div>
+          <span
+            *ngIf="authForm.get('email')?.hasError('min') && this.authForm.dirty && this.authForm.touched"
+            class="text-primary text-lg">
+            This field is must be longer than 6 symbols
+          </span>
+
+          <span
+            *ngIf="authForm.get('password')?.hasError('required')  && this.authForm.dirty && this.authForm.touched"
+            class="text-primary text-lg">
+            This field is required
+          </span>
+        </div>
+      </div>
+
+      <div *ngIf="!isSuccessfulRegister" class="text-primary text-lg fixed top-36 left-0 w-full text-center">
+        User exist or you typed wrong credentials
+      </div>
+
+      <div class="register__form_buttons">
+
+        <button (click)="register()" class="btn btn-primary ">Register</button>
+
+      </div>
+
+    </form>
+
+  </div>
+
+</div>

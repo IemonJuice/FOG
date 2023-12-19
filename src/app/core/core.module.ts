@@ -25,6 +25,8 @@ import {routes} from "./pages/pages.routes";
     NgOptimizedImage,
     PagesModule,
     RouterModule.forRoot(routes)
+
+
   ],
   exports: [FooterModule, NavBarModule, PageNotFoundModule, NavBarComponent,RouterModule]
 })

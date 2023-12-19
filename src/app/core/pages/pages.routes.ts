@@ -9,13 +9,7 @@ export const routes: Routes = [
     path: 'home', loadChildren: () => import('./page-home/page-home.module').then(m => m.PageHomeModule)
   },
   {
-    path: 'cpu', loadChildren: () => import('./page-cpu/page-cpu.module').then(m => m.PageCpuModule)
-  },
-  {
-    path: 'gpu', loadChildren: () => import('./page-gpu/page-gpu.module').then(m => m.PageGpuModule)
-  },
-  {
-    path: 'setup', loadChildren: () => import('./page-setup/page-setup.module').then(m => m.PageSetupModule)
+    path: 'catalog', loadChildren: () => import('./page-catalog/page-catalog.module').then(m => m.PageCatalogModule)
   },
   {
     path: 'account',canActivate: [AccountPageCanActivateGuard], loadChildren: () => import('./page-account/page-account.module').then(m => m.PageAccountModule)
