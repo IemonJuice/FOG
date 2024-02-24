@@ -8,19 +8,26 @@
   "targets": {
     "build": {
       "executor": "@angular-devkit/build-angular:application",
-      "outputs": ["{options.outputPath}"],
+      "outputs": [
+        "{options.outputPath}"
+      ],
       "options": {
         "outputPath": "dist/barbershop-client",
         "index": "barbershop-client/src/index.html",
         "browser": "barbershop-client/src/main.ts",
-        "polyfills": ["zone.js"],
+        "polyfills": [
+          "zone.js"
+        ],
         "tsConfig": "barbershop-client/tsconfig.app.json",
         "inlineStyleLanguage": "scss",
         "assets": [
           "barbershop-client/src/favicon.ico",
           "barbershop-client/src/assets"
         ],
-        "styles": ["barbershop-client/src/styles.scss"],
+        "styles": [
+          "@angular/material/prebuilt-themes/deeppurple-amber.css",
+          "barbershop-client/src/styles.scss"
+        ],
         "scripts": [],
         "server": "barbershop-client/src/main.server.ts",
         "prerender": true,
