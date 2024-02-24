@@ -1,0 +1,81 @@
+{
+  "name": "barbershop-client",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "prefix": "org",
+  "sourceRoot": "barbershop-client/src",
+  "tags": [],
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:application",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/barbershop-client",
+        "index": "barbershop-client/src/index.html",
+        "browser": "barbershop-client/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "barbershop-client/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "barbershop-client/src/favicon.ico",
+          "barbershop-client/src/assets"
+        ],
+        "styles": ["barbershop-client/src/styles.scss"],
+        "scripts": [],
+        "server": "barbershop-client/src/main.server.ts",
+        "prerender": true,
+        "ssr": {
+          "entry": "barbershop-client/server.ts"
+        }
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "optimization": false,
+          "extractLicenses": false,
+          "sourceMap": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "buildTarget": "barbershop-client:build:production"
+        },
+        "development": {
+          "buildTarget": "barbershop-client:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "buildTarget": "barbershop-client:build"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "options": {
+        "buildTarget": "barbershop-client:build",
+        "staticFilePath": "dist/barbershop-client/browser"
+      }
+    }
+  }
+}

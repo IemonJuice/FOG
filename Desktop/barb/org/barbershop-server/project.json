@@ -1,0 +1,24 @@
+{
+  "name": "barbershop-server",
+  "$schema": "../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "barbershop-server/src",
+  "projectType": "application",
+  "targets": {
+    "serve": {
+      "executor": "@nx/js:node",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "barbershop-server:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "barbershop-server:build:development"
+        },
+        "production": {
+          "buildTarget": "barbershop-server:build:production"
+        }
+      }
+    }
+  },
+  "tags": []
+}
